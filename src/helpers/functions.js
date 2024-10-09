@@ -33,10 +33,18 @@ const encryptPassword = async (string) => {
     return await bcrypt.hash(string, SALT);
 };
 
+const createJWT = async (userId, email, password) => {
+
+    const payload = { userId, email, password };
+
+    return jsonwebtoken.sign(payload, JWT_SECRET, { expiresIn: "1d" });
+}
+
 module.exports = {
     assembleResponse,
     destructuringErrors,
     createdUUID,
     decodePassword,
-    encryptPassword
+    encryptPassword,
+    createJWT
 }

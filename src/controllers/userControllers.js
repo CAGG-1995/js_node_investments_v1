@@ -1,4 +1,4 @@
-const { assembleResponse, destructuringErrors, decodePassword, createdUUID, encryptPassword } = require('../helpers/functions.js');
+const { assembleResponse, destructuringErrors, decodePassword, createdUUID, encryptPassword, createJWT } = require('../helpers/functions.js');
 const { createUser } = require('../models/userModels.js')
 
 const signUp = async (request, response) => {
@@ -10,12 +10,11 @@ const signUp = async (request, response) => {
         const DECODED_PASSWORD = decodePassword(password);
         const ENCRYPT_PASSWORD = await encryptPassword(DECODED_PASSWORD);
         const CREATE_USER = await createUser(UUID, email, ENCRYPT_PASSWORD);
+        const jwt = await createJWT(UUID, email, encryptPassword);
 
         console.log(CREATE_USER);
-        
 
-
-        return response.status(201).json(assembleResponse(false, 'OK', { email, password, UUID, DECODED_PASSWORD, ENCRYPT_PASSWORD } ));
+        return response.status(201).json(assembleResponse(false, 'OK', { email, password, UUID, DECODED_PASSWORD, ENCRYPT_PASSWORD, jwt } ));
         
     } catch (error) {
 
