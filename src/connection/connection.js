@@ -1,0 +1,22 @@
+require("dotenv").config();
+
+const mysql = require("mysql2");
+
+const DATABASE_PRODUCTION_HOST = process.env.DATABASE_PRODUCTION_HOST;
+const DATABASE_PRODUCTION_USER = process.env.DATABASE_PRODUCTION_USER;
+const DATABASE_PRODUCTION_PORT = process.env.DATABASE_PRODUCTION_PORT;
+const DATABASE_PRODUCTION_PASSWORD = process.env.DATABASE_PRODUCTION_PASSWORD;
+const DATABASE_PRODUCTION_DATABASE = process.env.DATABASE_PRODUCTION_DATABASE;
+
+const PRODUCTION = {
+    host: DATABASE_PRODUCTION_HOST,
+    user: DATABASE_PRODUCTION_USER,
+    port: DATABASE_PRODUCTION_PORT,
+    password: DATABASE_PRODUCTION_PASSWORD,
+    database: DATABASE_PRODUCTION_DATABASE,
+    connectionLimit: 10
+}
+
+const pool = mysql.createPool(PRODUCTION).promise();
+
+module.exports = pool;

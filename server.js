@@ -17,10 +17,6 @@ app.use(express.urlencoded({ extended: true }));
 app.get("/api/v1/test", (request, response) => { response.status(200).json({ msg:"Keep moving..." }); });
 app.use("/api/v1/users", usersRoutes);
 
-/*
-app.use("/api/v3/progress", progressRoutes);
-app.use("/api/v3/backup", backupRoutes);
-*/
 app.listen(9101, () => {
     console.log('Server it is live...');
 });
