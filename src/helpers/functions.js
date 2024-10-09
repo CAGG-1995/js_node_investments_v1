@@ -9,7 +9,7 @@ const JWT_SECRET = process.env.JWT_SECRET;
 
 const assembleResponse = (error = false, msg = "Success", body = {}) => { return { error, msg, body }};
 
-//const destructuring = (error) => { return { message, name, stack } = error };
+const destructuringErrors = (error) => error.stack.split('\n');
 
 const createdUUID = () => {
 
@@ -35,6 +35,7 @@ const encryptPassword = async (string) => {
 
 module.exports = {
     assembleResponse,
+    destructuringErrors,
     createdUUID,
     decodePassword,
     encryptPassword
