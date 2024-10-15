@@ -40,11 +40,19 @@ const createJWT = async (userId, email, password) => {
     return jsonwebtoken.sign(payload, JWT_SECRET, { expiresIn: "1d" });
 }
 
+const isValidEmail = (email) => {
+
+    const regex = EMAIL_RAGEX;
+
+    return regex.test(email);
+};
+
 module.exports = {
     assembleResponse,
     destructuringErrors,
     createdUUID,
     decodePassword,
     encryptPassword,
-    createJWT
+    createJWT,
+    isValidEmail
 }

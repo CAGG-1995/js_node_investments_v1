@@ -14,7 +14,7 @@ const signUp = async (request, response) => {
 
         console.log(CREATE_USER);
 
-        return response.status(201).json(assembleResponse(false, 'OK', { email, password, UUID, DECODED_PASSWORD, ENCRYPT_PASSWORD, jwt } ));
+        return response.status(201).json(assembleResponse(false, 'OK', { jwt } ));
         
     } catch (error) {
 
