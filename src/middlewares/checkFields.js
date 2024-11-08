@@ -5,6 +5,7 @@ const { EN } = require("../helpers/messages/english");
 const validateFields = async (request, response, next) => {
 
     const res = validationResult(request);
+
     const errorsList = [];
 
     res.errors.forEach(object => {

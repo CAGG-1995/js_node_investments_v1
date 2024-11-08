@@ -12,8 +12,6 @@ const signUp = async (request, response) => {
         const CREATE_USER = await createUser(UUID, email, ENCRYPT_PASSWORD);
         const jwt = await createJWT(UUID, email, encryptPassword);
 
-        console.log(CREATE_USER);
-
         return response.status(201).json(assembleResponse(false, 'OK', { jwt } ));
         
     } catch (error) {
