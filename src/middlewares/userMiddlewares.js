@@ -1,4 +1,5 @@
 const { assembleResponse } = require("../helpers/functions");
+const { EN } = require("../helpers/messages/english");
 const { selectUserByEmail } = require("../models/userModels");
 
 
@@ -17,8 +18,8 @@ const existUser = (isLogin) => {
 
             } else {
 
-                if (existEmail.body.length > 1) return response.status(409).json(assembleResponse(true, 'Conflict', {
-                    errosList: [{msg: 'This response is sent when a request conflicts with the current state of the server. In WebDAV remote web authoring, 409 responses are errors sent to the client so that a user might be able to resolve a conflict and resubmit the request.'}]
+                if (existEmail.body.length > 0) return response.status(409).json(assembleResponse(true, 'Conflict', {
+                    errosList: [{ msg: EN.EMAIL_EXIST }]
                 } ));
 
             }

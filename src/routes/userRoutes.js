@@ -9,6 +9,7 @@ const usersRoutes = Router();
 
 usersRoutes.post('/signup', [
     check('email', EN.EMAIL_IS_EMPTY).not().isEmpty(),
+    check('email').isLength({ max: 50 }).withMessage('Only 50 characters are allowed for the email'),
     check('password', EN.PASSWORD_IS_EMPTY).not().isEmpty(),
     validateFields,
     existUser(false)
