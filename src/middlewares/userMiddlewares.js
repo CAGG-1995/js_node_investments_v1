@@ -1,4 +1,4 @@
-const { assembleResponse } = require("../helpers/functions");
+const { assembleResponse, assembleErrorResponse } = require("../helpers/functions");
 const { EN } = require("../helpers/messages/english");
 const { selectUserByEmail } = require("../models/userModels");
 
@@ -19,7 +19,9 @@ const existUser = (isLogin) => {
             } else {
 
                 if (existEmail.body.length > 0) return response.status(409).json(assembleResponse(true, 'Conflict', {
-                    errosList: [{ msg: EN.EMAIL_EXIST }]
+                    errosList: [
+                        assembleErrorResponse('field', email, 'The email it is already registered.', 'users/signup', 'body')
+                    ]
                 } ));
 
             }

@@ -4,10 +4,13 @@ const fs = require("fs");
 const path = require("path");
 const bcrypt = require("bcrypt");
 const jsonwebtoken = require("jsonwebtoken");
+const { EMAIL_RAGEX } = require("./constants");
 
 const JWT_SECRET = process.env.JWT_SECRET;
 
 const assembleResponse = (error = false, msg = "Success", body = {}) => { return { error, msg, body }};
+
+const assembleErrorResponse = (type = "field", value = "", msg = "default error", path = "/", location = "body") => { return { type, value, msg, path, location }};
 
 const destructuringErrors = (error) => error.stack.split('\n');
 
@@ -49,6 +52,7 @@ const isValidEmail = (email) => {
 
 module.exports = {
     assembleResponse,
+    assembleErrorResponse,
     destructuringErrors,
     createdUUID,
     decodePassword,
