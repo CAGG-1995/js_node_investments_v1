@@ -15,6 +15,11 @@ const existUser = (isLogin) => {
 
             if (isLogin) {
 
+                if (existEmail.body.length === 0) return response.status(200).json(assembleResponse(true, 'OK', {
+                    errosList: [
+                        assembleErrorResponse('field', email, 'The email it is not registered.', 'users/login', 'body')
+                    ]
+                }));
 
             } else {
 
@@ -22,7 +27,7 @@ const existUser = (isLogin) => {
                     errosList: [
                         assembleErrorResponse('field', email, 'The email it is already registered.', 'users/signup', 'body')
                     ]
-                } ));
+                }));
 
             }
 

@@ -27,14 +27,16 @@ const createdUUID = () => {
     return uuid;
 }
 
-const decodePassword = (password) => { return Buffer.from(password, "base64").toString("utf8"); }
+const decodePassword = password => { return Buffer.from(password, "base64").toString("utf8"); }
 
-const encryptPassword = async (string) => {
+const encryptPassword = async password => {
 
     const SALT = bcrypt.genSaltSync(10);
 
-    return await bcrypt.hash(string, SALT);
+    return await bcrypt.hash(password, SALT);
 };
+
+const compareHash = async (password, hash) => { return await bcrypt.compare(password, hash) }
 
 const createJWT = async (userId, email, password) => {
 
@@ -57,6 +59,7 @@ module.exports = {
     createdUUID,
     decodePassword,
     encryptPassword,
+    compareHash,
     createJWT,
     isValidEmail
 }
