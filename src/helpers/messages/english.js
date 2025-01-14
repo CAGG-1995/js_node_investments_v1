@@ -11,7 +11,35 @@ const EN = {
     EMAIL_EXIST: 'This response is sent when a request conflicts with the current state of the server. In WebDAV remote web authoring, 409 responses are errors sent to the client so that a user might be able to resolve a conflict and resubmit the request.',
     EMAIL_BAD_FORMAT: 'The email format is invalid.',
     PASSWORD_IS_EMPTY: 'The password field is required and cannot contain blank spaces.',
-    PASSWORD_IS_INCORRECT: 'The email exist but the password is incorrect.'
+    PASSWORD_IS_INCORRECT: 'The email exist but the password is incorrect.',
+    // WORDS
+    WORD_IS_EMPTY: 'The word field is required and cannot contain blank spaces',
+    WORD_MAX_LENGTH: 'The Word parameter exceeds maximum length of 30 characters',
+    WORD_EXIST: 'This word is already registered',
+    WORD_NOT_EXIST: 'This word not exist',
+    WORDS_LIST_ARE_EMPTY: 'The words list it is empty',
+    WORD_DELETE_MSG: 'The word has been removed',
+    MEANING_IS_EMPTY: 'The meaning field is required and cannot contain blank spaces',
+    MEANING_MAX_LENGTH: 'The meaning parameter exceeds maximum length of 30 characters',
+    MEANING_IS_EMPTY: 'The meaning field is required and cannot contain blank spaces',
+    MEANING__MAX_LENGTH: 'The meaning parameter exceeds maximum length of 30 characters',
+    NOUN_IS_EMPTY: 'The noun field is required and cannot contain blank spaces',
+    NOUN_MAX_LENGTH: 'The noun parameter exceeds maximum length of 150 characters',
+    VERB_IS_EMPTY: 'The verb field is required and cannot contain blank spaces',
+    VERB_MAX_LENGTH: 'The verb parameter exceeds maximum length of 150 characters',
+    PREPOSITION_IS_EMPTY: 'The preposition field is required and cannot contain blank spaces',
+    PREPOSITION_MAX_LENGTH: 'The preposition parameter exceeds maximum length of 150 characters',
+    ADVERB_IS_EMPTY: 'The adverb field is required and cannot contain blank spaces',
+    ADVERB_MAX_LENGTH: 'The adverb parameter exceeds maximum length of 150 characters',
+    ADJECTIVE_IS_EMPTY: 'The adjective field is required and cannot contain blank spaces',
+    ADJECTIVE_MAX_LENGTH: 'The adjective parameter exceeds maximum length of 150 characters',
+    CONJUNCTION_IS_EMPTY: 'The conjunction field is required and cannot contain blank spaces',
+    CONJUNCTION_MAX_LENGTH: 'The conjunction parameter exceeds maximum length of 150 characters',
+    SYNONYMS_IS_EMPTY: 'The synonyms field is required and cannot contain blank spaces',
+    SYNONYMS_MAX_LENGTH: 'The synonyms parameter exceeds maximum length of 150 characters',
+    EXAMPLES_IS_EMPTY: 'The examples field is required and cannot contain blank spaces',
+    EXAMPLES_MAX_LENGTH: 'The examples parameter exceeds maximum length of 300 characters',
+    HAS_BLANK_SPACES: 'contains blank spaces'
 
 }
 

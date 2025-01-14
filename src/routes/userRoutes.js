@@ -1,8 +1,8 @@
 const { Router } = require('express');
 const { check } = require('express-validator');
 const { signUp, login } = require('../controllers/userControllers.js');
-const { EN } = require('../helpers/messages/english.js');
 const { validateFields } = require('../middlewares/checkFields.js');
+const { EN } = require('../helpers/messages/english.js');
 const { existUser } = require('../middlewares/userMiddlewares.js');
 const { isValidEmail } = require('../helpers/functions.js');
 

@@ -10,7 +10,8 @@ const validateFields = async (request, response, next) => {
 
     res.errors.forEach(object => {
 
-        const { type, value, msg, path, location } = object;
+        const { type, value, msg, path, location } = object;console.log(object);
+        
 
         errorsList.push({ type, value, msg, path, location });
 
