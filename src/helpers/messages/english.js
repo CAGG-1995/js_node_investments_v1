@@ -5,8 +5,13 @@ const EN = {
     PROBLEM: 'Problem',
     WARNING: 'Warning',
     ERROR: 'Error',
+    DEFAULT_TOKEN_ERROR: 'Your session has expired or the token is invalid. Please log in again to continue.',
     MSG_200: '200 OK',
-    ERROR_401: '401 Unauthorized',
+    // ERRORS
+    ERROR_MSG_400: '400 - Unauthorized',
+    ERROR_MSG_401: '401 - Bad Request',
+    ERROR_MSG_500: '500 - Internal Server Error',
+    // SESSION
     EMAIL_IS_EMPTY: 'The email field is required and cannot contain blank spaces.',
     EMAIL_EXIST: 'This response is sent when a request conflicts with the current state of the server. In WebDAV remote web authoring, 409 responses are errors sent to the client so that a user might be able to resolve a conflict and resubmit the request.',
     EMAIL_BAD_FORMAT: 'The email format is invalid.',
@@ -19,6 +24,8 @@ const EN = {
     WORD_NOT_EXIST: 'This word not exist',
     WORDS_LIST_ARE_EMPTY: 'The words list it is empty',
     WORD_DELETE_MSG: 'The word has been removed',
+    WORD_HAS_BEEN_INSERTED: 'The word has been created in the database.',
+    WORD_INSERT_ERROR: 'An error occurred while trying to insert the word.',
     MEANING_IS_EMPTY: 'The meaning field is required and cannot contain blank spaces',
     MEANING_MAX_LENGTH: 'The meaning parameter exceeds maximum length of 30 characters',
     MEANING_IS_EMPTY: 'The meaning field is required and cannot contain blank spaces',

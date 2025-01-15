@@ -4,7 +4,9 @@ const fs = require("fs");
 const path = require("path");
 const bcrypt = require("bcrypt");
 const jsonwebtoken = require("jsonwebtoken");
-const { EMAIL_RAGEX } = require("./constants");
+const { EMAIL_RAGEX, API_ROUTES } = require("./constants");
+const { EN } = require("./messages/english");
+
 
 const JWT_SECRET = process.env.JWT_SECRET;
 
@@ -14,7 +16,7 @@ const assembleErrorResponse = (type = "field", value = "", msg = "default error"
 
 const destructuringErrors = (error) => error.stack.split('\n');
 
-const createdUUID = () => {
+const createUUID = () => {
 
     let dt = new Date().getTime();
 
@@ -52,14 +54,29 @@ const isValidEmail = (email) => {
     return regex.test(email);
 };
 
+const isValidJWT = (token) => {
+
+    try {
+
+        const { userId, email, password, iat, exp } = jsonwebtoken.verify(token, JWT_SECRET);
+
+        return assembleResponse(false, EN.SUCCESS, { data: { userId, email, password, iat, exp } });
+        
+    } catch (error) {
+
+        return assembleResponse(true, error.message || EN.DEFAULT_TOKEN_ERROR, { errors: [assembleErrorResponse('token', 'No content', API_ROUTES.WORD.CREATE_WORD, error.message + ' - ' + error.name + ' - ' + error.expiredAt)] });
+    }
+} 
+
 module.exports = {
     assembleResponse,
     assembleErrorResponse,
     destructuringErrors,
-    createdUUID,
+    createUUID,
     decodePassword,
     encryptPassword,
     compareHash,
     createJWT,
-    isValidEmail
+    isValidEmail,
+    isValidJWT
 }

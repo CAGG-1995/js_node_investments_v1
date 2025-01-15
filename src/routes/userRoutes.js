@@ -6,7 +6,6 @@ const { EN } = require('../helpers/messages/english.js');
 const { existUser } = require('../middlewares/userMiddlewares.js');
 const { isValidEmail } = require('../helpers/functions.js');
 
-
 const usersRoutes = Router();
 
 usersRoutes.post('/signup', [

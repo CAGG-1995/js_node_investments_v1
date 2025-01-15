@@ -17,7 +17,7 @@ const validateFields = async (request, response, next) => {
 
     });
 
-    if (!res.isEmpty()) return response.status(401).json(assembleResponse(true, EN.ERROR_401, { errors: errorsList }));
+    if (!res.isEmpty()) return response.status(401).json(assembleResponse(true, EN.ERROR_MSG_401, { errors: errorsList }));
 
     next();
 
