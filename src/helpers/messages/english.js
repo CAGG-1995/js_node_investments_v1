@@ -5,19 +5,27 @@ const EN = {
     PROBLEM: 'Problem',
     WARNING: 'Warning',
     ERROR: 'Error',
-    DEFAULT_TOKEN_ERROR: 'Your session has expired or the token is invalid. Please log in again to continue.',
     MSG_200: '200 OK',
+    QUERY: 'Query',
+    MIDDLEWARE: 'Middleware',
+    BODY: 'Body',
+    TYPE: 'Field',
+    NO_CONTENT: 'No content',
+    METHOD: 'Method',
     // ERRORS
     ERROR_MSG_400: '400 - Unauthorized',
     ERROR_MSG_401: '401 - Bad Request',
     ERROR_MSG_500: '500 - Internal Server Error',
+    ERROR_QUERY_LOCATION: 'MYSQL queries',
+    DEFAULT_TOKEN_ERROR: 'Your session has expired or the token is invalid. Please log in again to continue.',
+
     // SESSION
     EMAIL_IS_EMPTY: 'The email field is required and cannot contain blank spaces.',
     EMAIL_EXIST: 'This response is sent when a request conflicts with the current state of the server. In WebDAV remote web authoring, 409 responses are errors sent to the client so that a user might be able to resolve a conflict and resubmit the request.',
     EMAIL_BAD_FORMAT: 'The email format is invalid.',
     PASSWORD_IS_EMPTY: 'The password field is required and cannot contain blank spaces.',
     PASSWORD_IS_INCORRECT: 'The email exist but the password is incorrect.',
-    // WORDS
+    // WORD
     WORD_IS_EMPTY: 'The word field is required and cannot contain blank spaces',
     WORD_MAX_LENGTH: 'The Word parameter exceeds maximum length of 30 characters',
     WORD_EXIST: 'This word is already registered',
@@ -26,6 +34,8 @@ const EN = {
     WORD_DELETE_MSG: 'The word has been removed',
     WORD_HAS_BEEN_INSERTED: 'The word has been created in the database.',
     WORD_INSERT_ERROR: 'An error occurred while trying to insert the word.',
+    WORD_FIND_ERROR: 'An error occurred while trying to find the word.',
+    WORD_HAS_BEEN_FOUND: 'the word has been found',
     MEANING_IS_EMPTY: 'The meaning field is required and cannot contain blank spaces',
     MEANING_MAX_LENGTH: 'The meaning parameter exceeds maximum length of 30 characters',
     MEANING_IS_EMPTY: 'The meaning field is required and cannot contain blank spaces',
@@ -46,7 +56,7 @@ const EN = {
     SYNONYMS_MAX_LENGTH: 'The synonyms parameter exceeds maximum length of 150 characters',
     EXAMPLES_IS_EMPTY: 'The examples field is required and cannot contain blank spaces',
     EXAMPLES_MAX_LENGTH: 'The examples parameter exceeds maximum length of 300 characters',
-    HAS_BLANK_SPACES: 'contains blank spaces'
+    HAS_BLANK_SPACES: 'contains blank spaces',
 
 }
 

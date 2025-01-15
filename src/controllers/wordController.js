@@ -15,16 +15,9 @@ const createWord = async (request, response) => {
 
         const wordId = createUUID();
 
-        const newWord = await insertWordDB(
-            wordId, incomingJWT.body.data.userId, word.toLowerCase(), meaning.toLowerCase(), noun.toLowerCase(),verb.toLowerCase(), preposition.toLowerCase(),
-            adverb.toLowerCase(), adjective.toLowerCase(), conjunction.toLowerCase(), synonyms.toLowerCase(), examples.toLowerCase()
-        );
+        const newWord = await insertWordDB(wordId, incomingJWT.body.data.userId, word.toLowerCase(), meaning.toLowerCase(), noun.toLowerCase(),verb.toLowerCase(), preposition.toLowerCase(), adverb.toLowerCase(), adjective.toLowerCase(), conjunction.toLowerCase(), synonyms.toLowerCase(), examples.toLowerCase());
 
         console.log(newWord);
-        
-
-        console.log({word, meaning, noun, verb, preposition, adverb, adjective, conjunction, synonyms, examples});
-
         
     } catch (error) {
         console.log('err...' + error);

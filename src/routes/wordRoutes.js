@@ -3,6 +3,7 @@ const { check } = require('express-validator');
 const { createWord } = require('../controllers/wordController.js');
 const { validateFields } = require('../middlewares/checkFields.js');
 const { EN } = require('../helpers/messages/english.js');
+const { existWord } = require('../middlewares/wordMiddlewares.js');
 
 const wordsRoutes = Router();
 
@@ -26,7 +27,7 @@ wordsRoutes.post('/create-word', [
     check('examples', EN.EXAMPLES_IS_EMPTY).not().isEmpty(),
     check('examples').isLength({ max: 300 }).withMessage(EN.EXAMPLES_MAX_LENGTH),
     validateFields,
-    //existWord()
+    existWord()
 ], createWord);
 
 module.exports = { wordsRoutes }

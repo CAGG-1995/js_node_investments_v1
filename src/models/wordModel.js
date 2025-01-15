@@ -4,7 +4,7 @@ const { API_ROUTES } = require("../helpers/constants.js");
 const { assembleResponse, assembleErrorResponse } = require("../helpers/functions.js");
 const { EN } = require("../helpers/messages/english.js");
 
-const insertWordDB = async (word_id, user_id, word, meaning, noun, verb, preposition, adverb, adjective, conjunction, synonyms, examples, langs) => {
+const insertWordDB = async (word_id, user_id, word, meaning, noun, verb, preposition, adverb, adjective, conjunction, synonyms, examples) => {
 
     try {
 
@@ -14,11 +14,25 @@ const insertWordDB = async (word_id, user_id, word, meaning, noun, verb, preposi
 
     } catch (error) {
 
-        return assembleResponse(true, EN.WORD_INSERT_ERROR, { errors: [assembleErrorResponse('query', 'No content', API_ROUTES.WORD.CREATE_WORD, error.message || error.message)] });
+        return assembleResponse(true, EN.WORD_INSERT_ERROR, { errors: [assembleErrorResponse(EN.QUERY, EN.NO_CONTENT, API_ROUTES.WORD.CREATE_WORD, error.message || error.WORD_FIND_ERROR, EN.ERROR_QUERY_LOCATION )]});
+    }
+}
 
+const findWord = async (userId, word) => {
+
+    try {
+
+        const record = await pool.query(`SELECT word FROM WORDS WHERE user_id = ? AND word = ?`, [userId, word]);
+
+        return assembleResponse(false, EN.WORD_HAS_BEEN_FOUND, { data: record });
+
+    } catch (error) {
+
+        return assembleResponse(true, EN.WORD_FIND_ERROR, { errors: [assembleErrorResponse(EN.QUERY, EN.NO_CONTENT, error.message || error.WORD_INSERT_ERROR, API_ROUTES.WORD.CREATE_WORD, EN.ERROR_QUERY_LOCATION )] });
     }
 }
 
 module.exports = {
-    insertWordDB
+    insertWordDB,
+    findWord
 }
