@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const { check } = require('express-validator');
-const { createWord } = require('../controllers/wordController.js');
+const { createWord, getWordsByUserAndPage } = require('../controllers/wordController.js');
 const { validateFields } = require('../middlewares/checkFields.js');
 const { EN } = require('../helpers/messages/english.js');
 const { existWord } = require('../middlewares/wordMiddlewares.js');
@@ -29,5 +29,8 @@ wordsRoutes.post('/create-word', [
     validateFields,
     existWord()
 ], createWord);
+
+wordsRoutes.get('/get-words-by-user-and-page', [
+], getWordsByUserAndPage);
 
 module.exports = { wordsRoutes }

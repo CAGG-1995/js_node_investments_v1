@@ -32,7 +32,19 @@ const findWord = async (userId, word) => {
     }
 }
 
+const selectWordsByUserAndPage = async (user_id, limit, offset, langs) => {
+
+    try {
+  
+        const records = await pool.query(`SELECT * FROM WORDS WHERE user_id = ? ORDER BY word ASC LIMIT ? OFFSET ?`, [user_id, Number(limit), Number(offset)]);
+    
+        return assembleResponse(false, 'langs.SUCCESS_MSG_200', { data: records[0] });
+            
+    } catch (error) {console.log(error); }
+}
+
 module.exports = {
     insertWordDB,
-    findWord
+    findWord,
+    selectWordsByUserAndPage
 }
