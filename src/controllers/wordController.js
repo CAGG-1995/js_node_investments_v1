@@ -38,7 +38,7 @@ const getWordsByUserAndPage = async (request, response) => {
 
         const listWords = await selectWordsByUserAndPage(incomingJWT.body.data.userId, limit, offset);
 
-        console.log(listWords);
+        return response.status(200).json(assembleResponse(false, listWords.msg, { records: listWords.body.records }));
         
     } catch (error) {
         console.log(error);
