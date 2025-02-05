@@ -32,6 +32,18 @@ const findWord = async (userId, word) => {
     }
 }
 
+
+const selectAllWords = async (user_id) => {
+
+    try {
+  
+        const records = await pool.query(`SELECT * FROM WORDS WHERE user_id = ? ORDER BY word ASC`, [user_id]);
+    
+        return assembleResponse(false, 'langs.SUCCESS_MSG_200', { records: records[0] });
+            
+    } catch (error) {console.log(error); }
+}
+
 const selectWordsByUserAndPage = async (user_id, limit, offset, langs) => {
 
     try {
@@ -46,5 +58,6 @@ const selectWordsByUserAndPage = async (user_id, limit, offset, langs) => {
 module.exports = {
     insertWordDB,
     findWord,
+    selectAllWords,
     selectWordsByUserAndPage
 }

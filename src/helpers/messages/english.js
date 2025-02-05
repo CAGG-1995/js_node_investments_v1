@@ -13,8 +13,8 @@ const EN = {
     NO_CONTENT: 'No content',
     METHOD: 'Method',
     // ERRORS
-    ERROR_MSG_400: '400 - Unauthorized',
-    ERROR_MSG_401: '401 - Bad Request',
+    ERROR_MSG_400: '400 - Bad Request',
+    ERROR_MSG_401: '401 - Unauthorized',
     ERROR_MSG_500: '500 - Internal Server Error',
     ERROR_QUERY_LOCATION: 'MYSQL queries',
     DEFAULT_TOKEN_ERROR: 'Your session has expired or the token is invalid. Please log in again to continue.',
@@ -25,6 +25,11 @@ const EN = {
     EMAIL_BAD_FORMAT: 'The email format is invalid.',
     PASSWORD_IS_EMPTY: 'The password field is required and cannot contain blank spaces.',
     PASSWORD_IS_INCORRECT: 'The email exist but the password is incorrect.',
+
+    // JWT
+
+    JWT_MAIN_ERROR: 'An unexpected error occurred while evaluating the jwt.',
+
     // WORD
     WORD_IS_EMPTY: 'The word field is required and cannot contain blank spaces',
     WORD_MAX_LENGTH: 'The Word parameter exceeds maximum length of 30 characters',

@@ -1,5 +1,5 @@
 const { isValidJWT, createUUID, assembleResponse } = require("../helpers/functions.js");
-const { insertWordDB, selectWordsByUserAndPage } = require("../models/wordModel.js");
+const { insertWordDB, selectWordsByUserAndPage, selectAllWords } = require("../models/wordModel.js");
 
 const createWord = async (request, response) => {
 
@@ -26,6 +26,26 @@ const createWord = async (request, response) => {
     }
 }
 
+const getAllWords = async (request, response) => {
+
+    try {
+
+        const { session } = request.headers;
+
+        const incomingJWT = isValidJWT(session); // change for a method that check the incoming jwt
+
+        // if (incomingJWT.error) return 0;// check the errors
+
+        const listWords = await selectAllWords(incomingJWT.body.data.userId);
+
+        return response.status(200).json(assembleResponse(false, listWords.msg, { records: listWords.body.records }));
+
+    } catch (error) {
+        return response.status(200).json(assembleResponse(false, listWords.msg, { records: listWords.body.records }));
+        
+    }
+}
+
 const getWordsByUserAndPage = async (request, response) => {
 
     try {
@@ -47,6 +67,7 @@ const getWordsByUserAndPage = async (request, response) => {
 }
 
 module.exports = {
-    getWordsByUserAndPage,
-    createWord
+    createWord,
+    getAllWords,
+    getWordsByUserAndPage
 }
