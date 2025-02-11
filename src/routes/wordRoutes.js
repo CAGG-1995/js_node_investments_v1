@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const { check } = require('express-validator');
-const { createWord, getAllWords, getWordsByUserAndPage } = require('../controllers/wordController.js');
+const { createWord, getAllWords, getWordsByUserAndPage, updateWord, deleteWord } = require('../controllers/wordController.js');
 const { validateFields } = require('../middlewares/checkFields.js');
 const { EN } = require('../helpers/messages/english.js');
 const { existWord } = require('../middlewares/wordMiddlewares.js');
@@ -28,6 +28,7 @@ wordsRoutes.post('/create-word', [
     check('examples', EN.EXAMPLES_IS_EMPTY).not().isEmpty(),
     check('examples').isLength({ max: 300 }).withMessage(EN.EXAMPLES_MAX_LENGTH),
     validateFields,
+    checkIncomingJWT(),
     existWord()
 ], createWord);
 
@@ -37,5 +38,15 @@ wordsRoutes.get('/get-all-words-by-user', [
 
 wordsRoutes.get('/get-words-by-user-and-page', [
 ], getWordsByUserAndPage);
+
+wordsRoutes.put('/update-word', [
+    checkIncomingJWT(),
+    existWord(),
+], updateWord);
+
+wordsRoutes.delete('/delete-word', [
+    checkIncomingJWT()
+], deleteWord);
+
 
 module.exports = { wordsRoutes }

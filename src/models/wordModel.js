@@ -55,9 +55,43 @@ const selectWordsByUserAndPage = async (user_id, limit, offset, langs) => {
     } catch (error) {console.log(error); }
 }
 
+const updateWordDB = async (user_id, word_id, word, meaning, noun, verb, preposition, adverb, adjective, conjunction, synonyms, examples) => {
+
+    try {
+
+        const query = `UPDATE WORDS SET user_id = ?, word = ?, meaning = ?, noun = ?, verb = ?, preposition = ?, adverb = ?, adjective = ?, conjunction = ?, synonyms = ?, examples = ? WHERE word_id = ?`;
+
+        const record = await pool.query(query, [user_id, word, meaning, noun, verb, preposition, adverb, adjective, conjunction, synonyms, examples, word_id]);
+
+        return assembleResponse(false, 'EN.WORD_HAS_BEEN_UPDATED', { record: record });
+
+    } catch (error) {
+        console.log(error);
+        
+    }
+};
+
+const deleteWordDB = async (word_id,) => {
+
+    try { console.log('newWord');
+
+        const query = `DELETE FROM WORDS WHERE word_id = ?`;
+
+        const record = await pool.query(query, [word_id]);
+
+        return assembleResponse(false, 'EN.WORD_HAS_BEEN_UPDATED', { record: record });
+
+    } catch (error) {
+        console.log(error);
+        
+    }
+}
+
 module.exports = {
     insertWordDB,
     findWord,
     selectAllWords,
-    selectWordsByUserAndPage
+    selectWordsByUserAndPage,
+    updateWordDB,
+    deleteWordDB
 }
