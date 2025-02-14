@@ -18,6 +18,9 @@ const existWord = () => {
 
             const exist = await findWord(incomingJWT.body.data.userId, word);
 
+            console.log(exist);
+            
+
             if (exist.error) return response.status(409).json(assembleResponse(true, exist.msg, { errors: exist.body.errors }));
 
             if (exist.body.data[0].length > 0) return response.status(409).json(

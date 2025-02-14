@@ -31,13 +31,13 @@ const EN = {
     JWT_MAIN_ERROR: 'An unexpected error occurred while evaluating the jwt.',
 
     // WORD
+    WORD_HAS_BEEN_INSERTED: 'The word has been created in the database.',
     WORD_IS_EMPTY: 'The word field is required and cannot contain blank spaces',
     WORD_MAX_LENGTH: 'The Word parameter exceeds maximum length of 30 characters',
     WORD_EXIST: 'This word is already registered',
     WORD_NOT_EXIST: 'This word not exist',
     WORDS_LIST_ARE_EMPTY: 'The words list it is empty',
     WORD_DELETE_MSG: 'The word has been removed',
-    WORD_HAS_BEEN_INSERTED: 'The word has been created in the database.',
     WORD_INSERT_ERROR: 'An error occurred while trying to insert the word.',
     WORD_FIND_ERROR: 'An error occurred while trying to find the word.',
     WORD_HAS_BEEN_FOUND: 'the word has been found',
@@ -63,6 +63,18 @@ const EN = {
     EXAMPLES_MAX_LENGTH: 'The examples parameter exceeds maximum length of 300 characters',
     HAS_BLANK_SPACES: 'contains blank spaces',
 
+    // PHRASE
+    PHRASE_HAS_BEEN_INSERTED: 'The phrase has been created in the database.',
+    PHRASE_INSERT_ERROR: 'An error occurred while trying to insert the phrase.',
+    PHRASE_HAS_BEEN_FOUND: 'the phrase has been found',
+    PHRASE_EXIST: 'This phrase is already registered',
+    PHRASE_FIND_ERROR: 'An error occurred while trying to find the phrase.',
+    PHRASE_IS_EMPTY: 'The phrase field is required and cannot contain blank spaces',
+    PHRASE_MAX_LENGTH: 'The phrase parameter exceeds maximum length of 150 characters',
+    PHRASE_MEANING_IS_EMPTY: 'The meaning field is required and cannot contain blank spaces',
+    PHRASE_MEANING_MAX_LENGTH: 'The meaning parameter exceeds maximum length of 200 characters',
+    PHRASE_TRANSLATION_IS_EMPTY: 'The translation field is required and cannot contain blank spaces',
+    PHRASE_TRANSLATION_MAX_LENGTH: 'The translation parameter exceeds maximum length of 250 characters',
 }
 
 module.exports = { EN }

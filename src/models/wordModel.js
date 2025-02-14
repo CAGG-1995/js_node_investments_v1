@@ -1,4 +1,5 @@
 require("dotenv").config();
+
 const pool = require('../connection/connection.js');
 const { API_ROUTES } = require("../helpers/constants.js");
 const { assembleResponse, assembleErrorResponse } = require("../helpers/functions.js");
