@@ -41,10 +41,7 @@ const getAllWords = async (request, response) => {
 
         return response.status(200).json(assembleResponse(false, listWords.msg, { records: listWords.body.records }));
 
-    } catch (error) {
-        return response.status(200).json(assembleResponse(false, listWords.msg, { records: listWords.body.records }));
-        
-    }
+    } catch (error) { return response.status(200).json(assembleResponse(false, listWords.msg, { records: listWords.body.records })); }
 }
 
 const getWordsByUserAndPage = async (request, response) => {
@@ -92,7 +89,7 @@ const updateWord = async (request, response) => {
 
 const deleteWord = async (request, response) => {
 
-    try {console.log('entro');
+    try {
     
        
         const { session, word_id } = request.headers;

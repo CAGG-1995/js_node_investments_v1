@@ -15,15 +15,15 @@ phraseRoutes.post('/create-phrase', [
     check('meaning').isLength({ max: 200 }).withMessage(EN.PHRASE_MEANING_MAX_LENGTH),
     check('translation', EN.PHRASE_TRANSLATION_IS_EMPTY).not().isEmpty(),
     check('translation').isLength({ max: 250 }).withMessage(EN.PHRASE_TRANSLATION_MAX_LENGTH),
-    validateFields,
     checkIncomingJWT(),
+    validateFields,
     existPhrase()
 ], createPhrase );
 
-phraseRoutes.post('/get-all-phrase-by-user', [], getAllPhrases );
+phraseRoutes.get('/get-all-phrase-by-user', [ checkIncomingJWT() ], getAllPhrases );
 
-phraseRoutes.post('/update-phrase', [], updatePhrase );
+phraseRoutes.put('/update-phrase', [ checkIncomingJWT() ], updatePhrase );
 
-phraseRoutes.post('/delete-phrase', [], deletePhrase );
+phraseRoutes.delete('/delete-phrase', [ checkIncomingJWT() ], deletePhrase );
  
 module.exports = { phraseRoutes }

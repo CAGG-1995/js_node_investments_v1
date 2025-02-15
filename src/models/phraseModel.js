@@ -15,7 +15,7 @@ const insertPhraseDB = async (user_id, phrase_id, phrase, meaning, translation) 
         
     } catch (error) {
 
-        return assembleResponse(true, EN.PHRASE_INSERT_ERROR, { errors: [assembleErrorResponse(EN.QUERY, { user_id, phrase_id, phrase, meaning, translation }, API_ROUTES.PHRASE.CREATE_PHRASE, error.message || error.PHRASE_INSERT_ERROR, EN.ERROR_QUERY_LOCATION)] });
+        return assembleResponse(true,  error.message || EN.ERROR_MSG_500, { errors: [assembleErrorResponse(EN.QUERY, { user_id, phrase_id, phrase, meaning, translation }, API_ROUTES.PHRASE.CREATE_PHRASE, error.message || error.PHRASE_INSERT_ERROR, EN.ERROR_QUERY_LOCATION)] });
     }
 }
 
@@ -27,13 +27,38 @@ const findPhrase = async (userId, phrase) => {
 
         return assembleResponse(false, EN.PHRASE_HAS_BEEN_FOUND, { record });
 
-    } catch (error) {
+    } catch (error) { return assembleResponse(true, error.message || EN.ERROR_MSG_500, { errors: [assembleErrorResponse(EN.QUERY, EN.NO_CONTENT, error.message || error.PHRASE_FIND_ERROR, API_ROUTES.PHRASE.CREATE_PHRASE, EN.ERROR_QUERY_LOCATION )] }); }
+}
 
-        return assembleResponse(true, EN.WORD_FIND_ERROR, { errors: [assembleErrorResponse(EN.QUERY, EN.NO_CONTENT, error.message || error.WORD_INSERT_ERROR, API_ROUTES.WORD.CREATE_WORD, EN.ERROR_QUERY_LOCATION )] });
+const selectAllPhrases = async (user_id) => {
+
+    try {
+
+        const records = await pool.query(`SELECT * FROM PHRASE WHERE user_id = ? ORDER BY phrase ASC`, [user_id]);
+
+        return assembleResponse(false, EN.PHRASE_ALL_HAS_BEEN_SELECTED, { records: records[0] });
+
+    } catch (error) { return assembleResponse(true, error.message || EN.ERROR_MSG_500, { errors: [assembleErrorResponse(EN.QUERY, EN.NO_CONTENT, error.message || error.PHRASE_ERROR_SELECTING_ALL, API_ROUTES.PHRASE.GET_ALL_PHRASE, EN.ERROR_QUERY_LOCATION )] }); }
+}
+
+const updatePhraseDB = async (phrase_id, phrase, meaning, translation) => {
+
+    try {
+
+        const query = `UPDATE PHRASE SET phrase = ?, meaning = ?, translation = ? WHERE phrase_id = ?`;
+
+        const record = await pool.query(query, [phrase, meaning, translation, phrase_id]);
+
+        return assembleResponse(false, EN.PHRASE_HAS_BEEN_UPDATED, { record: record });
+
+    } catch (error) {
+        
     }
 }
 
 module.exports = {
     insertPhraseDB,
-    findPhrase
+    findPhrase,
+    selectAllPhrases,
+    updatePhraseDB
 }

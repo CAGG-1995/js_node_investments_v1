@@ -7,6 +7,7 @@ const API_ROUTES = {
     },
     PHRASE: {
         CREATE_PHRASE: '/api/v1/phrase/create-phrase',
+        GET_ALL_PHRASE: 'api/v1/phrase/get-all-phrase-by-user',
     }
 }
 

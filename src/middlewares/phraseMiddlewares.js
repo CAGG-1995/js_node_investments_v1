@@ -21,7 +21,7 @@ const existPhrase = () => {
 
             if (exist.error) return response.status(409).json(assembleResponse(true, exist.msg, { errors: exist.body.errors }));
 
-            if (exist.body.record[1].length > 0) return response.status(409).json(
+            if (exist.body.record[0].length > 0) return response.status(409).json(
                 assembleResponse (true, EN.PHRASE_EXIST, {
                     errors: [assembleErrorResponse(EN.TYPE, phrase, EN.PHRASE_EXIST, API_ROUTES.PHRASE.CREATE_PHRASE, EN.BODY)]
                 }

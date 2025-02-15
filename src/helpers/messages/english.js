@@ -65,16 +65,20 @@ const EN = {
 
     // PHRASE
     PHRASE_HAS_BEEN_INSERTED: 'The phrase has been created in the database.',
+    PHRASE_ALL_HAS_BEEN_SELECTED: 'All the phrases has been selected.',
     PHRASE_INSERT_ERROR: 'An error occurred while trying to insert the phrase.',
-    PHRASE_HAS_BEEN_FOUND: 'the phrase has been found',
-    PHRASE_EXIST: 'This phrase is already registered',
+    PHRASE_HAS_BEEN_FOUND: 'the phrase has been found.',
+    PHRASE_EXIST: 'This phrase is already registered.',
     PHRASE_FIND_ERROR: 'An error occurred while trying to find the phrase.',
-    PHRASE_IS_EMPTY: 'The phrase field is required and cannot contain blank spaces',
-    PHRASE_MAX_LENGTH: 'The phrase parameter exceeds maximum length of 150 characters',
-    PHRASE_MEANING_IS_EMPTY: 'The meaning field is required and cannot contain blank spaces',
-    PHRASE_MEANING_MAX_LENGTH: 'The meaning parameter exceeds maximum length of 200 characters',
-    PHRASE_TRANSLATION_IS_EMPTY: 'The translation field is required and cannot contain blank spaces',
-    PHRASE_TRANSLATION_MAX_LENGTH: 'The translation parameter exceeds maximum length of 250 characters',
+    PHRASE_IS_EMPTY: 'The phrase field is required and cannot contain blank spaces.',
+    PHRASE_MAX_LENGTH: 'The phrase parameter exceeds maximum length of 150 characters.',
+    PHRASE_MEANING_IS_EMPTY: 'The meaning field is required and cannot contain blank spaces.',
+    PHRASE_MEANING_MAX_LENGTH: 'The meaning parameter exceeds maximum length of 200 characters.',
+    PHRASE_TRANSLATION_IS_EMPTY: 'The translation field is required and cannot contain blank spaces.',
+    PHRASE_TRANSLATION_MAX_LENGTH: 'The translation parameter exceeds maximum length of 250 characters.',
+    PHRASE_FIND_ERROR: 'An error occurred while trying to find the word',
+    PHRASE_ERROR_SELECTING_ALL: 'An error occurred while trying to select all phrases.',
+    PHRASE_HAS_BEEN_UPDATED: 'The phrase has been updated.',
 }
 
 module.exports = { EN }
